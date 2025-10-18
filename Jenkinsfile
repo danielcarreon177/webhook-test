@@ -3,28 +3,28 @@ pipeline {
     stages {
         stage('Paso 1: Saludo') {
             steps {
-                echo '¡Hola! El pipeline se ha iniciado correctamente.'
+                echo 'Iniciando una nueva prueba de automatización...'
             }
         }
         stage('Paso 2: Verificar Directorio') {
             steps {
-                echo 'Estoy revisando los archivos en el espacio de trabajo...'
-                // 'sh' es para sistemas Linux/Unix. 'ls -la' lista los archivos.
+                echo 'Contenido del directorio de trabajo:'
                 sh 'ls -la'
             }
         }
-        // --- NUEVA ETAPA AÑADIDA AQUÍ ---
-        stage('Paso Extra: Demostración') {
+        // --- ETAPA MODIFICADA ---
+        stage('Paso Extra: Verificar Versión de Java') {
             steps {
-                echo '*****************************************************'
-                echo '*** ¡LA AUTOMATIZACIÓN ESTÁ FUNCIONANDO! ***'
-                echo '*****************************************************'
+                echo '============================================='
+                echo 'Revisando la versión de Java del sistema...'
+                sh 'java --version'
+                echo '============================================='
             }
         }
-        // ------------------------------------
-        stage('Paso 3: Finalizado') {
+        // ------------------------
+        stage('Paso 4: Finalizado') {
             steps {
-                echo 'Pipeline completado con éxito. ¡Felicidades! 🎉'
+                echo 'Pipeline de prueba completado exitosamente. ✅'
             }
         }
     }
