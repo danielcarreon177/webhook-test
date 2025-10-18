@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Paso 1: Saludo') {
             steps {
-                echo 'Iniciando una nueva prueba de automatización...'
+                echo 'Iniciando la prueba final de la automatización...'
             }
         }
         stage('Paso 2: Verificar Directorio') {
@@ -12,19 +12,19 @@ pipeline {
                 sh 'ls -la'
             }
         }
-        // --- ETAPA MODIFICADA ---
-        stage('Paso Extra: Verificar Versión de Java') {
+        // --- NUEVA ETAPA PARA LA PRUEBA FINAL ---
+        stage('Paso 3: Identificar Usuario') {
             steps {
                 echo '============================================='
-                echo 'Revisando la versión de Java del sistema...'
-                sh 'java --version'
+                echo 'Verificando el usuario que ejecuta el pipeline...'
+                sh 'whoami' // Comando para mostrar el usuario actual
                 echo '============================================='
             }
         }
-        // ------------------------
+        // ------------------------------------
         stage('Paso 4: Finalizado') {
             steps {
-                echo 'Pipeline de prueba completado exitosamente. ✅'
+                echo '¡Conexión 100% confirmada! El webhook funcionó perfectamente. ✅'
             }
         }
     }
