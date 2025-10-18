@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'Estoy revisando los archivos en el espacio de trabajo...'
                 // Este comando funciona en la terminal de Windows
-                bat 'dir'
+                sh 'ls -la'
             }
         }
         stage('Paso 3: Finalizado') {
