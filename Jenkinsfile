@@ -1,30 +1,27 @@
 pipeline {
     agent any
     stages {
-        stage('Paso 1: Saludo') {
+        stage('Paso 1: Iniciar Prueba') {
             steps {
-                echo 'Iniciando la prueba final de la automatización...'
+                echo 'Iniciando una nueva prueba con pwd y hostname...'
             }
         }
-        stage('Paso 2: Verificar Directorio') {
-            steps {
-                echo 'Contenido del directorio de trabajo:'
-                sh 'ls -la'
-            }
-        }
-        // --- NUEVA ETAPA PARA LA PRUEBA FINAL ---
-        stage('Paso 3: Identificar Usuario') {
+        // --- NUEVA ETAPA DE PRUEBA ---
+        stage('Paso 2: Mostrar Información del Sistema') {
             steps {
                 echo '============================================='
-                echo 'Verificando el usuario que ejecuta el pipeline...'
-                sh 'whoami' // Comando para mostrar el usuario actual
+                echo '1. Directorio de trabajo actual (pwd):'
+                sh 'pwd'
+                echo ' '
+                echo '2. Nombre del host (hostname):'
+                sh 'hostname'
                 echo '============================================='
             }
         }
-        // ------------------------------------
-        stage('Paso 4: Finalizado') {
+        // -----------------------------
+        stage('Paso 3: Finalizado') {
             steps {
-                echo '¡Conexión 100% confirmada! El webhook funcionó perfectamente. ✅'
+                echo 'Prueba de automatización completada. ✅'
             }
         }
     }
