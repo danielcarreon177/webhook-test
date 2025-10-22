@@ -3,25 +3,22 @@ pipeline {
     stages {
         stage('Paso 1: Iniciar Prueba') {
             steps {
-                echo 'Iniciando una nueva prueba con pwd y hostname...'
+                echo 'Probando la nueva configuración de "Poll SCM" (sondeo SCM)...'
             }
         }
         // --- NUEVA ETAPA DE PRUEBA ---
-        stage('Paso 2: Mostrar Información del Sistema') {
+        stage('Paso 2: Mostrar Hora del Servidor') {
             steps {
                 echo '============================================='
-                echo '1. Directorio de trabajo actual (pwd):'
-                sh 'pwd'
-                echo ' '
-                echo '2. Nombre del host (hostname):'
-                sh 'hostname'
+                echo 'Verificando la hora actual del servidor de Jenkins...'
+                sh 'date' // Muestra la fecha y hora del servidor
                 echo '============================================='
             }
         }
         // -----------------------------
         stage('Paso 3: Finalizado') {
             steps {
-                echo 'Prueba de automatización completada. ✅'
+                echo '¡Prueba de "Poll SCM" completada! ✅'
             }
         }
     }
